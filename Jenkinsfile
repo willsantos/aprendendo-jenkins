@@ -21,21 +21,16 @@ pipeline {
             }
         }
 
-        stage("Send Discord Notification"){
-            when {
-              expression { return true } 
+        post{
+            always
+            {
+                echo "========Sending Discord Notification========"
+                discordSend description: "Jenkins Pipeline Build", 
+                  result: currentBuild.currentResult, 
+                  title: JOB_NAME, 
+                  webhookURL: "${params.discord}",
+                  enableArtifactsList: true
             }
-            steps{
-                script{
-                    echo "========Sending Discord Notification========"
-                    discordSend description: "Jenkins Pipeline Build", 
-                      result: currentBuild.currentResult, 
-                      title: JOB_NAME, 
-                      webhookURL: "${params.discord}",
-                      enableArtifactsList: true
-                }
-            }
-           
         }
     }
 
