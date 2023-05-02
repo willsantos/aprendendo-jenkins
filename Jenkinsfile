@@ -30,7 +30,8 @@ pipeline {
                   result: currentBuild.currentResult, 
                   title: JOB_NAME, 
                   webhookURL: "${params.discord}",
-                  enableArtifactsList: true
+                  enableArtifactsList: true,
+                  link: "https://hub.docker.com/repository/docker/wilsonsantosphx/jenkins-teste-dotnet/general"
             }
         }
         
