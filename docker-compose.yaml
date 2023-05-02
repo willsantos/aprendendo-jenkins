@@ -1,0 +1,8 @@
+version: '3.3'
+services:
+  panelonabot:
+    image: wilsonsantosphx/jenkins-teste-dotnet:latest
+    container_name: jenkins-teste-dotnet
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
