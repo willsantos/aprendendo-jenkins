@@ -20,8 +20,8 @@ pipeline {
                 }
             }
         }
-
-        post{
+    }
+      post{
             always
             {
                 echo "========Sending Discord Notification========"
@@ -32,7 +32,5 @@ pipeline {
                   enableArtifactsList: true
             }
         }
-    }
-
         
     }
