@@ -5,7 +5,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                    dockerapp = docker.build("wilsonsantosphx/jenkins-teste-dotnet:${env.BUILD_ID}", '-f ./Dockerfile ./src') 
+                    dockerapp = docker.build("wilsonsantosphx/jenkins-teste-dotnet:${env.BUILD_ID}", '-f ./Dockerfile ./') 
                 }                
             }
         }
