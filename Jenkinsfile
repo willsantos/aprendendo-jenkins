@@ -25,13 +25,12 @@ pipeline {
             steps{
                 script{
                     echo "========Sending Discord Notification========"
-                    discordSend 
-                      description: "Jenkins Pipeline Build", 
+                    discordSend description: "Jenkins Pipeline Build", 
                       result: currentBuild.currentResult, 
                       title: JOB_NAME, 
                       webhookURL: "${params.discord}",
                       enableArtifactsList: true,
-                      
+
                 }
             }
            
