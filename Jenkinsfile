@@ -1,3 +1,4 @@
+def app_version = "16.7.1"
 pipeline {
     agent any
 
@@ -5,7 +6,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                    dockerapp = docker.build("wilsonsantosphx/jenkins-teste-dotnet:${env.BUILD_ID}", '-f ./Dockerfile ./') 
+                    dockerapp = docker.build("wilsonsantosphx/jenkins-teste-dotnet:${app_version}", '-f ./Dockerfile ./') 
                 }                
             }
         }
@@ -13,9 +14,9 @@ pipeline {
         stage('Push Image') {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.comm', 'dockerhub') {
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
                         dockerapp.push('latest')
-                        dockerapp.push("${env.BUILD_ID}")
+                        dockerapp.push("${app_version}")
                     }
                 }
             }
