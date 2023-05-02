@@ -21,6 +21,14 @@ pipeline {
                 }
             }
         }
+
+        stage("Start docker"){
+            steps{
+                script{
+                    docker.image("wilsonsantosphx/jenkins-teste-dotnet:${app_version}").run("-p 8085:80 --name jenkins-teste-dotnet")
+                }
+            }
+        }
     }
       post{
             always
