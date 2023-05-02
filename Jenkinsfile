@@ -22,6 +22,9 @@ pipeline {
         }
 
         stage("Send Discord Notification"){
+            when {
+              expression { return true } 
+            }
             steps{
                 script{
                     echo "========Sending Discord Notification========"
