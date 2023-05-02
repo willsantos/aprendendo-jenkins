@@ -25,7 +25,7 @@ pipeline {
             steps{
                 script{
                     echo "========Sending Discord Notification========"
-                    discordSend description: "Jenkins Pipeline Build", result: currentBuild.currentResult, title: JOB_NAME, webhookURL: "https://discord.com/api/webhooks/1101853279895441428/wFdaBn6UzuB4ppg3-k46iGtrhugTj4hPL6pDsRXJraCw7ljrPlDoh0w2j-dkLhDGE5zk"
+                    discordSend description: "Jenkins Pipeline Build", result: currentBuild.currentResult, title: JOB_NAME, webhookURL: ${env.discord}
                 }
             }
            
