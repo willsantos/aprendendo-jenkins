@@ -1,4 +1,4 @@
-def app_version = "16.7.1"
+def app_version = "16.8.1"
 pipeline {
     agent any
 
